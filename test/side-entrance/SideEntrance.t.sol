@@ -51,7 +51,7 @@ contract SideEntranceChallenge is Test {
     }
 
     function receive() external payable {
-        pool.deposit{value: ETHER_IN_POOL + 1 wei}();
+        pool.deposit{value: ETHER_IN_POOL}();
     }
 
     /**
